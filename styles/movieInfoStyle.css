@@ -1,4 +1,4 @@
-#current-movie {
+/* #current-movie {
   position: fixed;
   width: 1100px;
   height: 550px;
@@ -64,4 +64,64 @@
   font-size: medium;
   line-height: 1.2;
   width: 800px;
+} */
+
+#current-movie {
+  position: fixed;
+  width: 90%;
+  height: auto;
+  padding: 10px;
+  top: 10%;
+  margin: 5%;
+  /* top: calc(50% - 25vh);
+  left: calc(50% - 25vw);
+ */
+  background-color: rgba(105, 105, 105, 0.627);
+  z-index: 1;
+  border-radius: 3px;
+  transition: 0.6s;
+}
+
+
+#current-poster {
+  height: 200px;
+  position: absolute;
+  top: 80px;
+  right: 35px;
+}
+#close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: large;
+  width: 30px;
+  height: 26px;
+  border: none;
+  border-radius: 2.5px;
+  background-color: rgba(0, 0, 0, 0.601);
+  color: white;
+  transition: ease-in-out 0.4s;
+}
+#close:hover {
+  transform: rotateZ(180deg);
+  width: 34px;
+  height: 30px;
+  top: 13px;
+  right: 13px;
+}
+#current-title {
+  text-align: left;
+  font-size: 40px;
+}
+#original-title {
+  text-align: left;
+  font-size: 15px;
+}
+#base-info {
+  left: 25px;
+  top: 140px;
+  text-align: left;
+  font-size: medium;
+  line-height: 1.2;
+  width: auto;
 }
