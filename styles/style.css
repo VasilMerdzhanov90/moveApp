@@ -27,11 +27,16 @@ h3 {
 }
 .welcome-view {
   width: 100vw;
-  height: 38vh;
+  height: 120px;
   background-color: rgb(16, 16, 16);
-  background-image: url("../aceds/movie-place-black.jpg");
+  /* background-image: url("../aceds/movie-place-black.jpg"); */
   background-repeat: no-repeat;
   border-bottom: 2px solid silver;
+}
+#logo {
+  margin-left: 10px;
+  margin-top: 4px;
+  height: 110px;
 }
 .movie {
   position: relative;
@@ -42,12 +47,12 @@ h3 {
   text-transform: capitalize;
   font-size: 16px;
 }
-img {
+#poster {
   height: 300px;
   object-fit: contain;
   transition: 0.5s;
 }
-img:hover {
+#poster:hover {
   transform: scale(1.06);
 }
 /* #content-loader{

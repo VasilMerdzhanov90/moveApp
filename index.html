@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="./aceds/movie-place-black.jpg">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/movieInfoStyle.css">
     <script src="./src/app.js" type="module"></script>
 
     <title>Movie Place</title>
@@ -16,12 +17,14 @@
 <body>
 
     <div class="welcome-view">
-
+        <img id="logo" src="./aceds/movie-place-black.jpg" alt="">
     </div>
 
+    <!-- <h2 class="movieTypes">Netflix Originals:</h2>
+    <div id="content" data='netflix'></div> -->
+
     <div id="content-loader">
-        <h2 class="movieTypes">Netflix Originals:</h2>
-        <div id="content" data='netflix'></div>
+
         <h2 class="movieTypes">Top Rated Movies:</h2>
         <div id="content" data="topRated"></div>
         <h2 class="movieTypes">Trending Movies:</h2>
@@ -38,8 +41,42 @@
         <div id="content" data="documentary"></div>
     </div>
 
+    <div id="current-movie" >
+        <button id="close">X</button>
+        <div id="">
+            <div id="titles">
+                <h1 id="current-title">The Godfather </h1>
+                <span id="original-title">Original title: "The Godfather"</span>
+            </div>
+            <img id="current-poster" src="http://image.tmdb.org/t/p/w300/9Baumh5J9N1nJUYzNkm0xsgjpwY.jpg">
+            <br>
+            <br>
+            <div id="base-info">
+                <p>Release Date: <span id="release"></span></p>
+                <p>Runtime: <span id="runtime"></span></p>
+                <p>Languages: <span id="languages"></span></p>
+                <p>Rating: <span id="rating"></span> </p>
+            </div>
 
-    <button>FETCH API</button>
+            <div id="movie-view">
+
+                <section id="current-main-info">
+                    <h3>Budget:</h3>
+                    <p id="budged"></p>
+                    <h3>Production companies:</h3>
+                    <p id="company">
+
+                    </p>
+                    <br>
+                    <br>
+                    <p id="overview">
+
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

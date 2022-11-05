@@ -1,7 +1,7 @@
 import { baseUrl, imageUrl, requests } from "./requests.js";
 
 
-const netflixContent = document.querySelector('[data="netflix"]')
+// const netflixContent = document.querySelector('[data="netflix"]')
 const topContent = document.querySelector('[data="topRated"]')
 const trendingContent = document.querySelector('[data="trending"]')
 const actionContent = document.querySelector('[data="action"]')
@@ -32,14 +32,14 @@ export async function loadListOfMovies() {
         romanceMovies.json(),
         documentaryMovies.json(),
     ]);
-    netflixContent.replaceChildren(...netflixOriginalData.results.map(listOfMoviesGenerator))
-    // topContent.replaceChildren(...topRatedData.results.map(listOfMoviesGenerator))
-    // trendingContent.replaceChildren(...trendingData.results.map(listOfMoviesGenerator))
-    // actionContent.replaceChildren(...actionMoviesData.results.map(listOfMoviesGenerator))
-    // comedyContent.replaceChildren(...comedyMoviesData.results.map(listOfMoviesGenerator))
-    // horrorContent.replaceChildren(...horrorMoviesData.results.map(listOfMoviesGenerator))
-    // romanceContent.replaceChildren(...romanceMoviesData.results.map(listOfMoviesGenerator))
-    // documentaryContent.replaceChildren(...documentaryMoviesData.results.map(listOfMoviesGenerator))
+    // netflixContent.replaceChildren(...netflixOriginalData.results.map(listOfMoviesGenerator))
+    topContent.replaceChildren(...topRatedData.results.map(listOfMoviesGenerator))
+    trendingContent.replaceChildren(...trendingData.results.map(listOfMoviesGenerator))
+    actionContent.replaceChildren(...actionMoviesData.results.map(listOfMoviesGenerator))
+    comedyContent.replaceChildren(...comedyMoviesData.results.map(listOfMoviesGenerator))
+    horrorContent.replaceChildren(...horrorMoviesData.results.map(listOfMoviesGenerator))
+    romanceContent.replaceChildren(...romanceMoviesData.results.map(listOfMoviesGenerator))
+    documentaryContent.replaceChildren(...documentaryMoviesData.results.map(listOfMoviesGenerator))
 }
 
 
@@ -49,6 +49,7 @@ function listOfMoviesGenerator(movies) {
     const div = document.createElement('div');
     div.className = 'movie';
     const poster = document.createElement('img');
+    poster.id = 'poster';
     poster.src = `${imageUrl}${posterPath}`;
     poster.setAttribute('data-id', movies['id'])
     const title = document.createElement('h3');
