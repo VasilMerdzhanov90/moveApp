@@ -5,6 +5,7 @@ mainContainer.addEventListener('click', movieFinder);
 
 const currentMovie = document.getElementById('current-movie');
 
+
 export async function movieFinder(e) {
     const target = e ? e.target : "";
     if (target.tagName == 'IMG') {
