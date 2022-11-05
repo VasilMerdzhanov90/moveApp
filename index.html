@@ -5,31 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./aceds/movie-place-black.jpg">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <title>Document</title>
+    <script src="./src/app.js" type="module"></script>
+
+    <title>Movie Place</title>
 </head>
 
 <body>
-    <div class="nav-container" id="navigation">
-        <nav>
-            <ul>
-                <li><a href="javascript:void(0)">trending</a></li>
-                <li><a href="javascript:void(0)">netflixOriginal</a></li>
-                <li><a href="javascript:void(0)">topRated</a></li>
-                <li><a href="javascript:void(0)">actionMovies</a></li>
-                <li><a href="javascript:void(0)">comedyMovies</a></li>
-                <li><a href="javascript:void(0)">horrorMovies</a></li>
-                <li><a href="javascript:void(0)">romanceMovies</a></li>
-                <li><a href="javascript:void(0)">documentaryMovies</a></li>
-            </ul>
-        </nav>
+
+    <div class="welcome-view">
+
     </div>
 
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <div id="content-loader">
+        <h2>Netflix Originals:</h2>
+        <div id="content" data='netflix'></div>
+        <h2>Top Rated Movies:</h2>
+        <div id="content" data="topRated"></div>
+        <h2>Trending Movies:</h2>
+        <div id="content" data="trending"></div>
+        <h2>Action Movies:</h2>
+        <div id="content" data="action"></div>
+        <h2>Comedy Movies:</h2>
+        <div id="content" data="comedy"></div>
+        <h2>Horror Movies</h2>
+        <div id="content" data="horror"></div>
+        <h2>Romance Movies:</h2>
+        <div id="content" data="romance"></div>
+        <h2>Documentary movies:</h2>
+        <div id="content" data="documentary"></div>
+    </div>
+
 
     <button>FETCH API</button>
-    <script src="./src/app.js" type="module"></script>
 </body>
 
 </html>

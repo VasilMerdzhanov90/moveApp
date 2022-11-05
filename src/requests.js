@@ -1,5 +1,5 @@
 const baseUrl = 'https://api.themoviedb.org/3';
-const imageUrl = 'http://image.tmdb.org/t/p/original/';
+const imageUrl = 'http://image.tmdb.org/t/p/w300';
 const API_KEY = 'ca699f41df4cdcc6f6807864d5581587';
 
 const requests = {

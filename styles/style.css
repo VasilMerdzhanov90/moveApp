@@ -1,0 +1,40 @@
+body {
+  background-color: rgb(16, 16, 16);
+  width: 100vw;
+  overflow-x: hidden;
+}
+h3 {
+  color: white;
+}
+.welcome-view {
+  width: 100vw;
+  height: 38vh;
+  background-color: rgb(16, 16, 16);
+  background-image: url("../aceds/movie-place-black.jpg");
+  background-repeat: no-repeat;
+  border-bottom: 2px solid silver;
+}
+
+img {
+  height: 300px;
+  object-fit: contain;
+  transition: 0.5s;
+}
+img:hover {
+  transform: scale(1.06);
+}
+#content {
+  display: flex;
+  gap: 8px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+  transition: 0.5s;
+}
+#content::-webkit-scrollbar {
+  display: none;
+}
+#content:hover{
+  transform: scale(1.01);
+
+}
