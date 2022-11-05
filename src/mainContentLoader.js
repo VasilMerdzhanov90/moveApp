@@ -22,7 +22,6 @@ export async function loadListOfMovies() {
         fetch(baseUrl + requests.romanceMovies),
         fetch(baseUrl + requests.documentaryMovies),
     ]);
-
     const [netflixOriginalData, topRatedData, trendingData, actionMoviesData, comedyMoviesData, horrorMoviesData, romanceMoviesData, documentaryMoviesData] = await Promise.all([
         netflixOriginal.json(),
         topRated.json(),
@@ -34,13 +33,13 @@ export async function loadListOfMovies() {
         documentaryMovies.json(),
     ]);
     netflixContent.replaceChildren(...netflixOriginalData.results.map(listOfMoviesGenerator))
-    topContent.replaceChildren(...topRatedData.results.map(listOfMoviesGenerator))
-    trendingContent.replaceChildren(...trendingData.results.map(listOfMoviesGenerator))
-    actionContent.replaceChildren(...actionMoviesData.results.map(listOfMoviesGenerator))
-    comedyContent.replaceChildren(...comedyMoviesData.results.map(listOfMoviesGenerator))
-    horrorContent.replaceChildren(...horrorMoviesData.results.map(listOfMoviesGenerator))
-    romanceContent.replaceChildren(...romanceMoviesData.results.map(listOfMoviesGenerator))
-    documentaryContent.replaceChildren(...documentaryMoviesData.results.map(listOfMoviesGenerator))
+    // topContent.replaceChildren(...topRatedData.results.map(listOfMoviesGenerator))
+    // trendingContent.replaceChildren(...trendingData.results.map(listOfMoviesGenerator))
+    // actionContent.replaceChildren(...actionMoviesData.results.map(listOfMoviesGenerator))
+    // comedyContent.replaceChildren(...comedyMoviesData.results.map(listOfMoviesGenerator))
+    // horrorContent.replaceChildren(...horrorMoviesData.results.map(listOfMoviesGenerator))
+    // romanceContent.replaceChildren(...romanceMoviesData.results.map(listOfMoviesGenerator))
+    // documentaryContent.replaceChildren(...documentaryMoviesData.results.map(listOfMoviesGenerator))
 }
 
 
@@ -48,17 +47,19 @@ export async function loadListOfMovies() {
 function listOfMoviesGenerator(movies) {
     const posterPath = movies['poster_path']
     const div = document.createElement('div');
+    div.className = 'movie';
     const poster = document.createElement('img');
     poster.src = `${imageUrl}${posterPath}`;
-    poster.setAttribute('data_id', movies.id)
+    poster.setAttribute('data-id', movies['id'])
     const title = document.createElement('h3');
+    title.className = 'movieTitle';
     title.textContent = movies['title'] || movies['original_name'];
-    const moreInfoBtn = document.createElement('button');
-    moreInfoBtn.textContent = 'Show more...'
+    // const moreInfoBtn = document.createElement('button');
+    // moreInfoBtn.textContent = 'Show more...'
 
     div.appendChild(poster)
     div.appendChild(title)
-    div.appendChild(moreInfoBtn)
+    // div.appendChild(moreInfoBtn)
     return div;
 
 }

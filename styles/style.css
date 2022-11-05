@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+h1,
+h2,
+h3,
+h4,
+article,
+p,
+div {
+  font-family: "Poppins", sans-serif;
+}
 body {
   background-color: rgb(16, 16, 16);
   width: 100vw;
@@ -5,6 +16,14 @@ body {
 }
 h3 {
   color: white;
+}
+.movieTypes {
+  margin-top: 15px;
+
+  color: white;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
 }
 .welcome-view {
   width: 100vw;
@@ -14,7 +33,15 @@ h3 {
   background-repeat: no-repeat;
   border-bottom: 2px solid silver;
 }
-
+.movie {
+  position: relative;
+}
+.movieTitle {
+  position: absolute;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 16px;
+}
 img {
   height: 300px;
   object-fit: contain;
@@ -23,7 +50,12 @@ img {
 img:hover {
   transform: scale(1.06);
 }
+/* #content-loader{
+    margin-top: 15px;
+} */
 #content {
+  height: 340px;
+  padding: 5px;
   display: flex;
   gap: 8px;
   overflow-y: hidden;
@@ -34,7 +66,6 @@ img:hover {
 #content::-webkit-scrollbar {
   display: none;
 }
-#content:hover{
+#content:hover {
   transform: scale(1.01);
-
 }
