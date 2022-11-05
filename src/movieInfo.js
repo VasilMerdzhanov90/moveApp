@@ -18,7 +18,7 @@ export async function movieFinder(e) {
             const data = await response.json()
             displayInfo(data)
             currentMovie.hidden = false;
-            // e.target.parentElement.parentElement.previousElementSibling.appendChild(currentMovie)
+            e.target.parentElement.parentElement.previousElementSibling.appendChild(currentMovie)
         } catch (error) {
             alert(error.message);
         }

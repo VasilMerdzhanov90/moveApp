@@ -11,7 +11,5 @@ function closeTab(e) {
     console.log(target)
     if (target.id == 'close') {
         e.target.parentElement.remove()
-        document.getElementById('content-loader').style.filter = 'none'
-
     }
 }
