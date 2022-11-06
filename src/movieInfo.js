@@ -39,7 +39,7 @@ const infoSection = {
     company: document.getElementById('company'),
     overview: document.getElementById('overview')
 };
-function displayInfo(data) {
+export function displayInfo(data) {
     infoSection.title.textContent = data.title;
     infoSection.originalTitle.textContent = `Original title: ${data.original_title}`;
     infoSection.image.src = `${imageUrl}${data.poster_path}`;

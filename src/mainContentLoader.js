@@ -44,13 +44,16 @@ export async function loadListOfMovies() {
 
 
 
-function listOfMoviesGenerator(movies) {
+export function listOfMoviesGenerator(movies) {
     const posterPath = movies['poster_path']
     const div = document.createElement('div');
     div.className = 'movie';
     const poster = document.createElement('img');
     poster.id = 'poster';
     poster.src = `${imageUrl}${posterPath}`;
+    if (poster.src == 'http://image.tmdb.org/t/p/w300null') {
+        poster.src = 'https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg'
+    }
     poster.setAttribute('data-id', movies['id'])
     const title = document.createElement('h3');
     title.className = 'movieTitle';
