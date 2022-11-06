@@ -1,4 +1,5 @@
 import { listOfMoviesGenerator } from "./mainContentLoader.js";
+import { movieFinder } from "./movieInfo.js";
 
 const searchForm = document.getElementById('search');
 searchForm.addEventListener('submit', searchMovie);
@@ -60,12 +61,17 @@ function generator(data) {
     const foundMovies = document.createElement('div');
     foundMovies.className = 'found-movies';
     foundMovies.replaceChildren(...data.map(listOfMoviesGenerator));
+    foundMovies.addEventListener('click', movieFinder)
     document.querySelector('div').appendChild(foundMovies);
-    resultTab.addEventListener('click', () => closeSearch(foundMovies, resultTab));
-}
+    console.log(resultTab)
+    resultTab.addEventListener('click', closeSearch);
 
-function closeSearch(foundMovies, resultTab) {
-    foundMovies.remove();
-    resultTab.hidden = true;
-    searchForm.hidden = false;
+    function closeSearch(e) {
+        if (e.target.textContent == 'Close') {
+            foundMovies.remove()
+            searchForm.hidden = false;
+            resultTab.hidden = true;
+            console.log(e.target)
+        }
+    }
 }

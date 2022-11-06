@@ -1,13 +1,17 @@
-import { baseUrl, requests, urlMovieSearch, imageUrl } from "./requests.js";
+import { requests, urlMovieSearch, imageUrl } from "./requests.js";
 
 const mainContainer = document.getElementById('content-loader');
 mainContainer.addEventListener('click', movieFinder);
 
 const currentMovie = document.getElementById('current-movie');
 
-
 export async function movieFinder(e) {
     const target = e ? e.target : "";
+    const parent = e ? target.parentElement.id : '';
+    if (parent == 'display-info') {
+        return
+    };
+
     if (target.tagName == 'IMG') {
         const movieId = target.dataset.id
         try {
@@ -31,55 +35,31 @@ const infoSection = {
     title: document.getElementById('current-title'),
     originalTitle: document.getElementById('original-title'),
     image: document.getElementById('current-poster'),
-    release: document.getElementById('release'),
-    runtime: document.getElementById('runtime'),
-    languages: document.getElementById('languages'),
-    rating: document.getElementById('rating'),
-    movieBudget: document.getElementById('budged'),
-    company: document.getElementById('company'),
+    // release: document.getElementById('release'),
+    // runtime: document.getElementById('runtime'),
+    // languages: document.getElementById('languages'),
+    // rating: document.getElementById('rating'),
+    // movieBudget: document.getElementById('budged'),
+    // company: document.getElementById('company'),
     overview: document.getElementById('overview')
 };
 export function displayInfo(data) {
     infoSection.title.textContent = data.title;
     infoSection.originalTitle.textContent = `Original title: ${data.original_title}`;
     infoSection.image.src = `${imageUrl}${data.poster_path}`;
-    infoSection.release.textContent = data.release_data;
-    infoSection.runtime.textContent = `${data.runtime} minutes`;
-    let languages = data.spoken_languages.map(x => x.name)
-    infoSection.languages.textContent = languages.join(', ');
-    infoSection.rating.textContent = data.vote_average;
-    infoSection.movieBudget.textContent = `${data.budget}$`;
+    // infoSection.image.setAttribute('data-id', data.id);
+    if (infoSection.image.src == 'http://image.tmdb.org/t/p/w300null') {
+        infoSection.image.src = 'https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg'
+    }
+
+    // infoSection.release.textContent = data.release_data;
+    // infoSection.runtime.textContent = `${data.runtime} minutes`;
+    // let languages = data.spoken_languages.map(x => x.name)
+    // infoSection.languages.textContent = languages.join(', ');
+    // infoSection.rating.textContent = data.vote_average;
+    // infoSection.movieBudget.textContent = `${data.budget}$`;
     infoSection.overview.textContent = data.overview;
-    let companies = data.production_companies.map(x => x['name']);
-    infoSection.company.textContent = companies.join(' / ');
+    // let companies = data.production_companies.map(x => x['name']);
+    // infoSection.company.textContent = companies.join(' / ');
+    document.getElementById('trailer').setAttribute('data-id', data.id);
 }
-
-
-
-/**backdrop_path: "/p68WrxXPgmhjuaYetTiVKLUb65s.jpg"
-​
-first_air_date: "2018-09-24"
-​
-genre_ids: Array(3) [ 18, 9648, 10765 ]
-​
-id: 79696
-​
-name: "Manifest"
-​
-origin_country: Array [ "US" ]
-​
-original_language: "en"
-​
-original_name: "Manifest"
-​
-overview: "After landing from a turbulent but routine flight, the crew and passengers of Montego Air Flight 828 discover five years have passed in what seemed like a few hours. As their new realities become clear, a deeper mystery unfolds and some of the returned passengers soon realize they may be meant for something greater than they ever thought possible."
-​
-popularity: 608.866
-​
-poster_path: "/1xeiUxShzNn8TNdMqy3Hvo9o2R.jpg"
-​
-vote_average: 7.7
-​
-vote_count: 953
-​
-<prototype>: Object { … } */

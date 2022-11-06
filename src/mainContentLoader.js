@@ -12,7 +12,16 @@ const documentaryContent = document.querySelector('[data="documentary"]')
 
 export async function loadListOfMovies() {
 
-    const [netflixOriginal, topRated, trending, actionMovies, comedyMovies, horrorMovies, romanceMovies, documentaryMovies] = await Promise.all([
+    const [
+        netflixOriginal,
+        topRated,
+        trending,
+        actionMovies,
+        comedyMovies,
+        horrorMovies,
+        romanceMovies,
+        documentaryMovies
+    ] = await Promise.all([
         fetch(baseUrl + requests.netflixOriginal),
         fetch(baseUrl + requests.topRated),
         fetch(baseUrl + requests.trending),
@@ -22,7 +31,16 @@ export async function loadListOfMovies() {
         fetch(baseUrl + requests.romanceMovies),
         fetch(baseUrl + requests.documentaryMovies),
     ]);
-    const [netflixOriginalData, topRatedData, trendingData, actionMoviesData, comedyMoviesData, horrorMoviesData, romanceMoviesData, documentaryMoviesData] = await Promise.all([
+    const [
+        netflixOriginalData,
+        topRatedData,
+        trendingData,
+        actionMoviesData,
+        comedyMoviesData,
+        horrorMoviesData,
+        romanceMoviesData,
+        documentaryMoviesData
+    ] = await Promise.all([
         netflixOriginal.json(),
         topRated.json(),
         trending.json(),
@@ -58,12 +76,9 @@ export function listOfMoviesGenerator(movies) {
     const title = document.createElement('h3');
     title.className = 'movieTitle';
     title.textContent = movies['title'] || movies['original_name'];
-    // const moreInfoBtn = document.createElement('button');
-    // moreInfoBtn.textContent = 'Show more...'
 
     div.appendChild(poster)
     div.appendChild(title)
-    // div.appendChild(moreInfoBtn)
     return div;
 
 }
